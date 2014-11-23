@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr" ng-app="phonecatApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Hockey Nite Client</title>
+        <link rel="stylesheet" href="./CSS/bootstrap.css">
+        <link rel="stylesheet" href="./CSS/myCss.css">
+        <script src="./js/jquery.js"></script>
+        <script src="./js/myjs.js"></script>
+
+
+    </head>
+    <body>
+        <header>
+            <div class="image">
+                <img src="./ressources/logo.png" alt="HockeyNite">
+            </div>
+            <div class="nom">
+                <p>Hockey Nite</p>
+            </div>
+        </header>   
+        <div class="container-fluid">
+            <nav class="col-md-3">
+                <div class="nav">
+                    <div class="descriptionBtn active" onclick="displayContent();">Match1</div>
+                    <div class="uvBtn" onclick="displayUv()">Match2</div>
+                    <div class="xpBtn" onclick="displayXp()">Match3</div>
+                    <div class="otherXpBtn" onclick="displayOtherXp()">Match4</div>
+                    <div class="skillBtn" onclick="displaySkills()">Match5</div>
+                    <div class="projectBtn" onclick="displayProjets()">Match6</div>
+                </div>
+                <div class="contact">
+                    <p>Me contacter : <a href="mailto:{{infos.mail}}">{{infos.mail}}</a></p>
+                    <p>Linkedin : <a href="{{infos.linkedin}}">Linkedin</a></p>
+                    <p><a href="ressources/{{infos.titreCv}}.pdf">télécharger mon CV (PDF)</a></p>
+                </div>
+            </nav>
+            <article class="col-md-9 cont">
+                <div class="titre center">
+                    <h2>Sherbrooke - Vauxbuin</h2>
+                </div>
+                <div class="period center">
+                    <h2>period = <span id="timestamp">1</span></h2>
+                </div>
+                <div class="time center">
+                    <h2>time = <span id="timestamp">2:45</span></h2>
+                </div>
+                <div class="score center">
+                    <h2>Score :
+                        <span id="score_1">2</span>
+                        <span>-</span>
+                        <span id="score_2">34</span>
+                    </h2>
+                </div>
+                <div class="penal center">
+                    <h2>Penal : 
+                        <span id="penal_1">2</span>
+                        <span>-</span>
+                        <span id="penal_2">34</span>
+                    </h2>
+                </div>
+                <div class="refresh center">
+                    <button id="refresh_button">refresh</button>
+                </div>
+            </article>
+            
+            
+        </div>
+        <script type="text/javascript">
+
+            $(".content").hide();
+            displayContent();
+
+            $( document ).ready(function() {
+                setTimeout(function () {
+                    $(".link").on("click", function() 
+                    {
+                        if($(this).find(".content").css("display") == "none") {
+                            $(".link").find(".content").hide("slow");
+                            $(this).find(".content").show("slow");
+                        }
+                        else{
+                            $(this).find(".content").hide("slow");
+                        }
+
+                    })}, 200);
+            });
+        </script>
+    </body>
+</html>
