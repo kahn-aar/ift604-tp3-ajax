@@ -22,41 +22,36 @@
         <div class="container-fluid">
             <nav class="col-md-3">
                 <div class="nav">
-                    <div class="descriptionBtn active" onclick="displayContent();">Match1</div>
-                    <div class="uvBtn" onclick="displayUv()">Match2</div>
-                    <div class="xpBtn" onclick="displayXp()">Match3</div>
-                    <div class="otherXpBtn" onclick="displayOtherXp()">Match4</div>
-                    <div class="skillBtn" onclick="displaySkills()">Match5</div>
-                    <div class="projectBtn" onclick="displayProjets()">Match6</div>
-                </div>
-                <div class="contact">
-                    <p>Me contacter : <a href="mailto:{{infos.mail}}">{{infos.mail}}</a></p>
-                    <p>Linkedin : <a href="{{infos.linkedin}}">Linkedin</a></p>
-                    <p><a href="ressources/{{infos.titreCv}}.pdf">télécharger mon CV (PDF)</a></p>
+                    <div class="buttons active">Match1</div>
+                    <div class="buttons" >Match2</div>
+                    <div class="buttons">Match3</div>
+                    <div class="buttons">Match4</div>
+                    <div class="buttons">Match5</div>
+                    <div class="buttons">Match6</div>
                 </div>
             </nav>
-            <article class="col-md-9 cont">
+            <article class="col-md-9 content">
                 <div class="titre center">
-                    <h2>Sherbrooke - Vauxbuin</h2>
+                    <h2><span id="team1">Sherbrooke</span> - <span id="team2">Vauxbuin</span></h2>
                 </div>
                 <div class="period center">
-                    <h2>period = <span id="timestamp">1</span></h2>
+                    <h2>period = <span id="periodtime">1</span></h2>
                 </div>
                 <div class="time center">
                     <h2>time = <span id="timestamp">2:45</span></h2>
                 </div>
                 <div class="score center">
                     <h2>Score :
-                        <span id="score_1">2</span>
+                        <span id="score1">2</span>
                         <span>-</span>
-                        <span id="score_2">34</span>
+                        <span id="score2">34</span>
                     </h2>
                 </div>
                 <div class="penal center">
                     <h2>Penal : 
-                        <span id="penal_1">2</span>
+                        <span id="penal1">2</span>
                         <span>-</span>
-                        <span id="penal_2">34</span>
+                        <span id="penal2">34</span>
                     </h2>
                 </div>
                 <div class="refresh center">
@@ -68,20 +63,22 @@
         </div>
         <script type="text/javascript">
 
-            $(".content").hide();
-            displayContent();
-
             $( document ).ready(function() {
                 setTimeout(function () {
-                    $(".link").on("click", function() 
+                    $(".buttons").click( function() 
                     {
-                        if($(this).find(".content").css("display") == "none") {
-                            $(".link").find(".content").hide("slow");
-                            $(this).find(".content").show("slow");
-                        }
-                        else{
-                            $(this).find(".content").hide("slow");
-                        }
+                        hideAll();
+                        $(this).addClass('active');
+
+                        
+                        document.getElementById("team1").innerHTML="courgette";
+                        document.getElementById("team2").innerHTML="Tomate";
+                        document.getElementById("periodtime").innerHTML="2";
+                        document.getElementById("timestamp").innerHTML="1:75";
+                        document.getElementById("score1").innerHTML="2";
+                        document.getElementById("score2").innerHTML="1";
+                        document.getElementById("penal1").innerHTML="2";
+                        document.getElementById("penal2").innerHTML="1";
 
                     })}, 200);
             });
